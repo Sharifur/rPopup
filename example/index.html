@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery rPopup </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/rpopup.min.css">
+    <link rel="stylesheet" href="assets/css/rvideoplayer.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <section class="demo-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header">
+                        <h1 class="title">rPopup</h1>
+                        <span class="small">Easy to use jquery image/video Popup by Sharifur</span>
+                        <ul class="menu">
+                            <li><a href="#">Example</a></li>
+                            <li><a href="https://github.com/Sharifur/rPopup">Github</a></li>
+                            <li><a href="https://github.com/Sharifur/rPopup/archive/master.zip">Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="single-progressbar">
+                        <h4 class="title">Image Popup</h4>
+                        <div class="html">
+                            <a href="#"><a href="assets/img/butterfly_4350670_640.jpg" class="image-popup"><button type="button">Image Popup</button></a></a>
+                        </div>
+                    </div>
+                    <div class="single-progressbar">
+                        <h4 class="title">Youtube Video Popup</h4>
+                        <div class="css"><a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" class="youtube-popup"><button type="button">Video Popup</button></a></div>
+                    </div>
+                    <div class="single-progressbar">
+                        <h4 class="title">Hosted Video Popup</h4>
+                        <div class="php"><a href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" class="hosted-popup"><button type="button">Hosted Video Popup</button></a></div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="how-to margin-top-60">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h2 class="title">How To Active image rPopup</h2>
+                            </div>
+                            <div class="card-body">
+                                <code>
+                                        $('.className').rPopup({
+                                            'image': true
+                                        });
+                                </code>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="title">How To Active youtube video rPopup</h2>
+                            </div>
+                            <div class="card-body">
+                                <code>
+                                            $('.className').rPopup({
+                                                'video': {
+                                                    embed: true,
+                                                    autoplay: true,
+                                                },
+                                            });
+                                    </code>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="title">How To Active hosted video rPopup</h2>
+                            </div>
+                            <div class="card-header">
+                                <code>
+                                    $('.className').rPopup({
+                                        'video': {
+                                            embed: true,
+                                            autoplay: true,
+                                        },
+                                    });
+                                    </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-player" data-videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" data-videoPoster="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.min.js"></script>
+    <script src="assets/js/jquery.rPopup.js"></script>
+    <script src="assets/js/jquery.rvideoPlayer.js"></script>
+    <script src="assets/js/active.js"></script>
+</body>
+
+</html>

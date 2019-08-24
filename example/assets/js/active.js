@@ -18,7 +18,6 @@
         },
     });
 
-    $('.video-player').rVideoPlayer();
 
 
 })(jQuery);

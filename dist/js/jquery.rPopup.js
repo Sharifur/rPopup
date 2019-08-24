@@ -1,12 +1,5 @@
-/**
- * Plugin Name: rPopup
- *  Author : Sharifur Rahman
- *  A lightwet jquery image and video popup plugin
- *  */
-
 (function($) {
     "use strict";
-
     $.fn.rPopup = function(options) {
         options = $.extend({
             'video': {
@@ -15,15 +8,11 @@
             },
             'image': false
         }, options);
-
-
-
         return this.each(function(index, value) {
             var $this = $(this);
             var video = options.video ? 'video' : '';
             var image = options.image ? 'image' : '';
             var intervalFunc;
-
             $this.on('click', function(e) {
                 e.preventDefault();
                 $('body').append('<div class="rpopup-overlay"></div>');
@@ -36,9 +25,8 @@
                     var imgsrc = $this.attr('href');
                     var embedUrl = 'https://www.youtube.com/embed/';
                     var autoplay = options.video.autoplay ? 1 : 0;
-
                     if (/(?:.mp4|.MOV|.avi|.AVI|.FLV|.MKV )/g.test(imgsrc)) {
-                        var markup = `<div id="rvideo__player" class="rvideo__player"><video class="rpalyer__video"><source src="${imgsrc}"></video>
+                        var markup = `<div id="rpopup_video__player" class="rpopup_video__player"><video class="rpopup_video__Player"><source src="${imgsrc}"></video>
                         <div class="rvideo_player__extra_wrap">
                             <div class="rvideo_player__progress_wrap">
                                     <span class="rvideo_player__progress_active"></span>
@@ -61,13 +49,11 @@
                             </div>
                     </div>`;
                     }
-
                     if (/v=([^\s]+)/g.test(imgsrc)) {
                         var findId = /v=([^\s]+)/g.exec(imgsrc);
                         imgsrc = embedUrl + findId[1];
                         var markup = `<iframe id="rpopupIframe" src="${imgsrc}?autoplay=${autoplay}" frameborder="0" allowfullscreen=""></iframe>`;
                     }
-
                 }
                 $('body').append(`
                 <div class="roppup-modal">
@@ -96,19 +82,19 @@
                 </div>
                 `);
                 overlay.addClass('show');
-                $('#rvideo__player').bind('contextmenu', function() {
+                $('#rpopup_video__player').bind('contextmenu', function() {
                     return false;
                 });
                 $('.rpopup-content .img-wrapper,.rpopup-content iframe').ready(function() {
                     $('.rpopup-preloader').removeClass('active');
                 });
-                var video = document.querySelector('.rpalyer__video');
+                var video = document.querySelector('.rpopup_video__Player');
                 if (video != null) {
                     var currentTime = video.currentTime;
                     var duration = video.duration;
                     if (options.video.autoplay) {
                         video.play();
-                        playHostedVideo($('.rvideo_player_btn, .rpalyer__video'));
+                        playHostedVideo($('.rvideo_player_btn, .rpopup_video__Player'));
                     }
                     video.onloadedmetadata = function() {
                         var minutes = parseInt(video.duration / 60, 10);
@@ -116,12 +102,10 @@
                         var videoDuration = minutes + ':' + Math.floor(seconds);
                         $('.rvideo_player_duration').text(videoDuration);
                     }
-
-                    $('.rvideo_player_btn, .rpalyer__video').click(function(e) {
+                    $('.rpopup_video__player .rvideo_player_btn, .rpopup_video__Player').click(function(e) {
                         e.preventDefault();
                         var el = $(this);
                         playHostedVideo(el);
-
                     });
 
                     function rplayerTime() {
@@ -129,19 +113,17 @@
                         var seconds = video.currentTime % 60;
                         seconds = Math.floor(seconds);
                         var videoDuration = minutes + ':' + ('0' + seconds).slice(-2);
-                        $('.rvideo_player_start_time').text(videoDuration);
+                        $('.rpopup_video__player .rvideo_player_start_time').text(videoDuration);
                     }
-
-                    $('.rvideo_player__progress_wrap').on('click', function(e) {
+                    $('.rpopup_video__player .rvideo_player__progress_wrap').on('click', function(e) {
                         var el = $(this);
                         var currentPlayerTime = (e.offsetX / el.width()) * video.duration;
                         video.currentTime = currentPlayerTime;
-						var percent = video.currentTime / video.duration * 100;
-						rplayerTime();
-						rplayerProgress(percent);
+                        var percent = video.currentTime / video.duration * 100;
+                        rplayerTime();
+                        rplayerProgress(percent);
                     });
-
-                    $('.rvideo_player_volume_range').on('change', function() {
+                    $('.rpopup_video__player .rvideo_player_volume_range').on('change', function() {
                         var el = $(this);
                         video.volume = el.val() / 100;
                     });
@@ -155,12 +137,10 @@
                             rplayerTime();
                             rplayerProgress(percent);
                         }, 1000);
-
-                        var el = $('.rvideo_player_btn');
+                        var el = $('.rpopup_video__player .rvideo_player_btn');
                         if (el.hasClass('rvideo_play')) {
                             video.play();
                             el.addClass('rvideo_pause').removeClass('rvideo_play');
-
                         } else if (el.hasClass('rvideo_pause')) {
                             clearInterval(intervalFunc);
                             video.pause();
@@ -170,15 +150,12 @@
                 }
 
                 function rplayerProgress(percent) {
-                    $('.rvideo_player__progress_active').css({ width: percent + '%' })
+                    $('.rpopup_video__player .rvideo_player__progress_active').css({
+                        width: percent + '%'
+                    })
                 }
-
-
             });
-
         });
-
-
     }
     $(document).on('click', '.rpopup-overlay', function(e) {
         $(this).remove();
@@ -187,7 +164,4 @@
         $(this).parent().parent().parent().remove();
         $('.rpopup-overlay').remove();
     });
-
-
-
 })(jQuery);

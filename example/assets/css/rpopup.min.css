@@ -299,7 +299,7 @@
     }
 }
 
-.rvideo_player__progress_wrap {
+.rpopup_video__player .rvideo_player__progress_wrap {
     position: relative;
     z-index: 0;
     bottom: 20px;
@@ -313,7 +313,7 @@
     cursor: pointer;
 }
 
-.rvideo_player__progress_wrap .rvideo_player__progress_active {
+.rpopup_video__player .rvideo_player__progress_wrap .rvideo_player__progress_active {
     position: absolute;
     left: 0;
     bottom: 0px;
@@ -326,7 +326,7 @@
     transition: all 100ms;
 }
 
-.rvideo_player__controls_wrap {
+.rpopup_video__player .rvideo_player__controls_wrap {
     position: relative;
     z-index: 0;
     bottom: 10px;
@@ -338,20 +338,21 @@
     justify-content: space-between;
 }
 
-.rvideo_player__buttons {
+.rpopup_video__player .rvideo_player__buttons {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-.rvideo_player_volume_wrap {
+.rpopup_video__player .rvideo_player_volume_wrap {
     display: inline-block;
     margin-top: -2px;
     position: relative;
     z-index: 0;
+    width: 80px;
 }
 
-.rvideo_player__extra_wrap {
+.rpopup_video__player .rvideo_player__extra_wrap {
     position: absolute;
     bottom: 5px;
     width: 95%;
@@ -363,18 +364,18 @@
     transition: all 500ms;
 }
 
-.rvideo_player_time_wrap span {
+.rpopup_video__player .rvideo_player_time_wrap span {
     font-size: 16px;
     font-weight: 600;
     font-family: inherit;
     color: rgba(255, 255, 255, 0.8);
 }
 
-.rvideo_player_btn {
+.rpopup_video__player .rvideo_player_btn {
     width: 20px;
 }
 
-.rvideo_player_btn.rvideo_play {
+.rpopup_video__player .rvideo_player_btn.rvideo_play {
     display: inline-block;
     border-top: 8px solid transparent;
     border-left: 10px solid #3498db;
@@ -385,7 +386,7 @@
     top: 5px;
 }
 
-.rvideo_player_btn.rvideo_pause {
+.rpopup_video__player .rvideo_player_btn.rvideo_pause {
     display: inline-block;
     position: relative;
     z-index: 0;
@@ -393,7 +394,7 @@
     cursor: pointer;
 }
 
-.rvideo_player_btn.rvideo_pause:after {
+.rpopup_video__player .rvideo_player_btn.rvideo_pause:after {
     position: absolute;
     left: 0;
     top: 0;
@@ -403,7 +404,7 @@
     content: "";
 }
 
-.rvideo_player_btn.rvideo_pause:before {
+.rpopup_video__player .rvideo_player_btn.rvideo_pause:before {
     position: absolute;
     left: 7px;
     top: 0;
@@ -413,7 +414,7 @@
     content: "";
 }
 
-.rvideo_player_volume_range {
+.rpopup_video__player .rvideo_player_volume_range {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -426,7 +427,7 @@
     transition: all 500ms;
 }
 
-.rvideo_player_volume_range::-webkit-slider-thumb {
+.rpopup_video__player .rvideo_player_volume_range::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -436,7 +437,7 @@
     border-radius: 50%;
 }
 
-.rvideo_player_volume_range::-moz-range-thumb {
+.rpopup_video__player .rvideo_player_volume_range::-moz-range-thumb {
     width: 15px;
     height: 15px;
     background: #3498db;
@@ -444,7 +445,7 @@
     border-radius: 50%;
 }
 
-.rvideo_player_volume_icon {
+.rpopup_video__player .rvideo_player_volume_icon {
     width: 10px;
     height: 10px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -454,7 +455,7 @@
     border-radius: 2px;
 }
 
-.rvideo_player_volume_icon:after {
+.rpopup_video__player .rvideo_player_volume_icon:after {
     position: absolute;
     left: 0px;
     top: -3px;
@@ -466,7 +467,7 @@
     border-bottom: 8px solid transparent;
 }
 
-.rvideo__player:hover .rvideo_player__extra_wrap {
+.rpopup_video__player:hover .rvideo_player__extra_wrap {
     visibility: visible;
     opacity: 1;
 }
@@ -477,7 +478,7 @@
         margin: 3% auto;
         text-align: center;
     }
-    .rvideo__player {
+    .rpopup_video__player {
         position: relative;
         z-index: 0;
         display: inline-block;
@@ -492,11 +493,22 @@
         max-width: 100%;
     }
     .roppup-modal .roppup-area .rpopup-content .rpopup-close {
-        right: -10px;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        line-height: 26px;
+        top: 0;
+        border-radius: 0;
     }
     .roppup-modal .roppup-area .rpopup-content iframe,
     .roppup-modal .roppup-area .rpopup-content video {
         max-width: 100%;
         min-width: 100%;
+    }
+    .roppup-modal .roppup-area .rpopup-content {
+        width: 100%;
+        margin: 0;
+        text-align: center;
     }
 }
